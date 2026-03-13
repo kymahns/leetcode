@@ -1,2 +1,2 @@
 # leetcode
-Leetcode Progress
+Leetcode Progress from 0

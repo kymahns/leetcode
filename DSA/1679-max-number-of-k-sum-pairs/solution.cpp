@@ -7,15 +7,20 @@
 class Solution {
 public:
     int maxOperations(vector<int>& nums, int k) {
-        unordered_map<int,int> map;
+        sort(nums.begin(),nums.end());
+        int i = 0, j = nums.size() - 1;
         int count = 0;
-        for(auto num : nums){
-            if(map[k - num]>0){
-                map[k-num] --;
+        while(i<j){
+            if(nums[i] + nums[j] == k){
                 count++;
+                i++;
+                j--;
+            }
+            else if(nums[i] + nums[j] > k){
+                j--;
             }
             else{
-                map[num] ++;
+                i++;
             }
         }
         return count;

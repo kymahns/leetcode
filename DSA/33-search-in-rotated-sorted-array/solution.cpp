@@ -2,7 +2,7 @@
 // URL: https://leetcode.com/problems/search-in-rotated-sorted-array
 // Difficulty: Medium
 // Language: C++
-// Date: 2026-05-05
+// Date: 2026-05-22
 
 class Solution {
 public:
@@ -27,6 +27,5 @@ public:
             }
         }
         return -1;
-
     }
 };

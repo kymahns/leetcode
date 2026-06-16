@@ -2,25 +2,33 @@
 // URL: https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list
 // Difficulty: Medium
 // Language: C++
-// Date: 2026-04-10
+// Date: 2026-06-16
 
-class Solution{
-public:   
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
     ListNode* deleteMiddle(ListNode* head) {
-        if (!head || !head->next) return nullptr;
-
-        int count = 1;
-        ListNode* cur = head;
-        while (cur->next != nullptr) {
-            count++;
-            cur = cur->next;
+        if(!head || !head->next){
+            return nullptr;
         }
-
-        cur = head;
-        for (int i = 0; i < count/2 - 1; i++) {
-            cur = cur->next;
+        ListNode* fast = head;
+        ListNode* slow = head;
+        ListNode* prev = slow;
+        while(fast && fast->next){
+            prev = slow;
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        cur->next = cur->next->next;
+        prev->next = slow->next;
         return head;
     }
 };

@@ -2,19 +2,17 @@
 // URL: https://leetcode.com/problems/find-the-highest-altitude
 // Difficulty: Easy
 // Language: C++
-// Date: 2026-04-04
+// Date: 2026-06-20
 
 class Solution {
 public:
     int largestAltitude(vector<int>& gain) {
-        vector<int> alt(gain.size()+1,0);
-        for(int i = 0; i<gain.size();i++){
-            alt[i+1] = alt[i] +gain[i];
+        int curHeight = 0;
+        int maxHeight = 0;
+        for(int i = 0; i < gain.size(); i++){
+            curHeight = curHeight + gain[i];
+            maxHeight = max(maxHeight,curHeight);
         }
-        int maxim = 0;
-        for(auto i : alt){
-            maxim = max(maxim,i);
-        }
-        return maxim;
+        return maxHeight;
     }
 };

@@ -13,8 +13,6 @@ public:
             else {
                 if (i + 1 < s.size() && s[i + 1] == ')') i++;
                 else ans++;
-
-                // Step 2: find its '('
                 if (open > 0) open--;
                 else ans++;
             }
